@@ -6,10 +6,6 @@ export const Container = styled.main`
   background: blueviolet;
   display: flex;
 
-  @media (max-width: 1000px) {
-    width: calc(100% - 65px);
-  }
-
   @media (max-width: 700px) {
     width: 100%;
   }

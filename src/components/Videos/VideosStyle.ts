@@ -9,6 +9,7 @@ export const Container = styled.div`
   padding: 10px 5px;
   gap: 5px;
   justify-content: flex-start;
+  align-content: baseline;
   overflow: auto;
 
   @media (max-width: 500px) {

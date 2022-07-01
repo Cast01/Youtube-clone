@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   background: chartreuse;
   height: 50%;
+  max-height: 250px;
   width: calc((100% / 4) - 4px);
 
   @media (max-width: 1000px) {
