@@ -1,14 +1,128 @@
 import styled from "styled-components";
 
-interface AsideProps {
-  aside: boolean;
-}
-
 export const Container = styled.aside`
-  ${({ aside }: AsideProps) =>
-    aside
-      ? ".aside {width: 200px;height: 100%;"
-      : ".aside-compacted {width: 65px;height: 100%;background: white;ul {width: 100%;display: flex;flex-direction: column;justify-content: flex-start;li {width: 100%;height: 65px; border: 1px solid black;}}}"}
+  .aside {
+    width: 200px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    hr {
+      margin: 10px auto;
+      width: 90%;
+    }
+
+    .others {
+      li {
+        font-size: 12px;
+        height: 17px;
+        padding-left: 15px;
+
+        span {
+          &:nth-child(2) {
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+
+    ul {
+      .title {
+        padding-bottom: 10px;
+        color: #878787;
+
+        h2 {
+          font-size: 17px;
+        }
+      }
+
+      li {
+        display: flex;
+        width: 100%;
+        height: 35px;
+
+        .image {
+          width: 25%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+          }
+        }
+
+        .icon {
+          width: 25%;
+          height: 100%;
+          font-size: 28px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .name {
+          width: 75%;
+          height: 100%;
+          padding-right: 10px;
+          display: flex;
+          align-items: center;
+
+          span {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+
+  .aside-compacted {
+    width: 100px;
+    height: 100%;
+    background: white;
+
+    ul {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      li {
+        width: 100%;
+        height: 65px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          background: #d1d1d1;
+        }
+
+        .icon {
+          width: 100%;
+          height: 60%;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+        }
+
+        .name {
+          width: 100%;
+          height: 40%;
+          display: flex;
+          padding-top: 3px;
+          justify-content: center;
+          align-items: flex-start;
+          font-size: 13px;
+        }
+      }
+    }
+  }
 
   @media (max-width: 700px) {
     .aside {

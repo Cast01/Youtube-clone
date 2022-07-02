@@ -1,5 +1,4 @@
 import Aside from "../../components/Aside/Aside";
-import ModalAside from "../../components/ModalAside/ModalAside";
 import Categories from "../../components/Categories/Categories";
 import Header from "../../components/Header/Header";
 import Main from "../../components/Main/Main";
@@ -14,7 +13,6 @@ export default function Home() {
 
   return (
     <Container aside={aside}>
-      <ModalAside />
       <Header />
       <Main>
         <Aside />
