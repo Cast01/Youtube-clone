@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.main`
   width: 100%;
   height: calc(100vh - 65px);
-  background: blueviolet;
   display: flex;
 
   @media (max-width: 700px) {

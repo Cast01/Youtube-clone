@@ -1,5 +1,11 @@
 import { Container } from "./CategoriesStyle";
 
 export default function Categories() {
-  return <Container>Categories</Container>;
+  const arr = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+
+  return (
+    <Container>
+      Categories
+    </Container>
+  );
 }

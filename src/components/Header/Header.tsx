@@ -8,14 +8,23 @@ import {
   VideoCamera,
   DotsNine,
   Bell,
+  Screencast,
 } from "phosphor-react";
 import { YoutubeLogo } from "../YoutubeLogo/YoutubeLogo";
+import { AsideSwitcherContext } from "../../Contexts/AsideSwitcher";
+import { useContext } from "react";
 
 export default function Header() {
+  const { aside, setAside } = useContext(AsideSwitcherContext);
+
+  function asideSwitcher() {
+    setAside(!aside);
+  }
+
   return (
     <Container>
       <div className="box-1">
-        <List size={25} />
+        <List size={25} onClick={asideSwitcher} />
         <YoutubeLogo />
       </div>
       <div className="box-2">
@@ -33,17 +42,32 @@ export default function Header() {
         <ul>
           <li>
             <a href="#">
-              <VideoCamera />
+              <div className="desktop-tablet">
+                <VideoCamera />
+              </div>
+              <div className="mobile">
+                <Screencast />
+              </div>
             </a>
           </li>
           <li>
             <a href="#">
-              <DotsNine />
+              <div className="desktop-tablet">
+                <DotsNine />
+              </div>
+              <div className="mobile">
+                <Bell />
+              </div>
             </a>
           </li>
           <li>
             <a href="#">
-              <Bell />
+              <div className="desktop-tablet">
+                <Bell />
+              </div>
+              <div className="mobile">
+                <MagnifyingGlass />
+              </div>
             </a>
           </li>
           <li>

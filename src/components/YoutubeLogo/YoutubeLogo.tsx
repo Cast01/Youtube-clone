@@ -9,7 +9,7 @@ export function YoutubeLogo() {
       x="0px"
       y="0px"
       viewBox="0 0 492 110"
-      enable-background="new 0 0 492 110"
+      enableBackground="new 0 0 492 110"
       xmlSpace="preserve"
     >
       <g>

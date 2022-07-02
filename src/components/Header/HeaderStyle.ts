@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  background: #f1f1f1;
   width: 100%;
   height: 65px;
   margin: 0 auto;
@@ -13,11 +12,34 @@ export const Container = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+
+    @media (max-width: 700px) {
+      width: 50%;
+    }
+
+    svg {
+      position: absolute;
+    }
 
     .youtubeSVG {
       width: 150px;
       height: 25px;
-      margin-left: 20px;
+      left: 40px;
+
+      @media (max-width: 700px) {
+        width: 90px;
+        left: 15px;
+      }
+    }
+
+    svg:first-child {
+      cursor: pointer;
+      left: 15px;
+
+      @media (max-width: 700px) {
+        display: none;
+      }
     }
   }
 
@@ -26,6 +48,10 @@ export const Container = styled.header`
     justify-content: center;
     align-items: conter;
     width: calc(100vw - 500px);
+
+    @media (max-width: 700px) {
+      display: none;
+    }
 
     .box-input {
       display: flex;
@@ -57,6 +83,7 @@ export const Container = styled.header`
           top: 50%;
           transform: translateY(-50%);
           left: -35px;
+          cursor: pointer;
         }
       }
     }
@@ -65,6 +92,10 @@ export const Container = styled.header`
   .box-3 {
     width: 250px;
     height: 100%;
+
+    @media (max-width: 700px) {
+      width: 50%;
+    }
 
     ul {
       display: flex;
@@ -75,11 +106,44 @@ export const Container = styled.header`
 
       li {
         a {
-          svg {
-            width: 25px;
-            height: 25px;
-            color: black;
+          @media (min-width: 700px) {
+            .mobile {
+              display: none;
+            }
+
+            .desktop-tablet {
+              svg {
+                width: 25px;
+                height: 25px;
+                color: black;
+
+                @media (max-width: 370px) {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
           }
+
+          @media (max-width: 700px) {
+            .desktop-tablet {
+              display: none;
+            }
+
+            .mobile {
+              svg {
+                width: 25px;
+                height: 25px;
+                color: black;
+
+                @media (max-width: 370px) {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+
           img {
             width: 40px;
             height: 40px;
