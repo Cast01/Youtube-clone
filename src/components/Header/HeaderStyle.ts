@@ -26,6 +26,7 @@ export const Container = styled.header`
       width: 150px;
       height: 25px;
       left: 40px;
+      cursor: pointer;
 
       @media (max-width: 700px) {
         width: 90px;
@@ -57,6 +58,7 @@ export const Container = styled.header`
       display: flex;
       width: 80%;
       align-items: center;
+      max-width: 700px;
 
       input {
         height: 35px;

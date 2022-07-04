@@ -13,10 +13,29 @@ export const Container = styled.aside`
     }
 
     .others {
+      .margin-top {
+        margin-top: 10px;
+      }
+
       li {
         font-size: 12px;
         height: 17px;
         padding-left: 15px;
+        cursor: default;
+
+        &:hover {
+          background: #fff;
+        }
+
+        > span {
+          span {
+            cursor: pointer;
+
+            &:hover {
+              background: #d1d1d1;
+            }
+          }
+        }
 
         span {
           &:nth-child(2) {
@@ -30,6 +49,7 @@ export const Container = styled.aside`
       .title {
         padding-bottom: 10px;
         color: #878787;
+        padding-left: 15px;
 
         h2 {
           font-size: 17px;
@@ -40,6 +60,12 @@ export const Container = styled.aside`
         display: flex;
         width: 100%;
         height: 35px;
+        transition: 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          background: #d1d1d1;
+        }
 
         .image {
           width: 25%;
@@ -92,6 +118,7 @@ export const Container = styled.aside`
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      list-style-type: none;
 
       li {
         width: 100%;
