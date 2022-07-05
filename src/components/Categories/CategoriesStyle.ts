@@ -13,6 +13,7 @@ export const Container = styled.div`
   border-bottom: 1px solid #c7c7c7;
   background: white;
   position: relative;
+  overflow: hidden;
 
   svg {
     position: absolute;

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
-import { Container } from "./HeaderStyle";
+import { Container, InputAndButton } from "./HeaderStyle";
 import {
   List,
   Keyboard,
@@ -15,10 +15,15 @@ import { AsideSwitcherContext } from "../../Contexts/AsideSwitcher";
 import { useContext } from "react";
 
 export default function Header() {
-  const { aside, setAside } = useContext(AsideSwitcherContext);
+  const { aside, setAside, setModalSearch, modalSearch } =
+    useContext(AsideSwitcherContext);
 
   function asideSwitcher() {
-    setAside(!aside);
+    if (aside === "true") {
+      setAside("false");
+    } else if ("false") {
+      setAside("true");
+    }
   }
 
   return (
@@ -28,7 +33,7 @@ export default function Header() {
         <YoutubeLogo />
       </div>
       <div className="box-2">
-        <div className="box-input">
+        <InputAndButton>
           <input type="text" />
           <div className="box-button-icon">
             <button>
@@ -36,7 +41,7 @@ export default function Header() {
             </button>
             <Keyboard size={30} />
           </div>
-        </div>
+        </InputAndButton>
       </div>
       <div className="box-3">
         <ul>
@@ -66,7 +71,7 @@ export default function Header() {
                 <Bell />
               </div>
               <div className="mobile">
-                <MagnifyingGlass />
+                <MagnifyingGlass onClick={() => setModalSearch(!modalSearch)} />
               </div>
             </a>
           </li>

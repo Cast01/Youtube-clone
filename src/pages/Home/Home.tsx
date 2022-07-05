@@ -7,6 +7,7 @@ import Videos from "../../components/Videos/Videos";
 import { Container } from "./HomeStyle";
 import { AsideSwitcherContext } from "../../Contexts/AsideSwitcher";
 import { useContext } from "react";
+import ModalSearch from "../../components/ModalSearch/ModalSearch";
 
 export default function Home() {
   const { aside } = useContext(AsideSwitcherContext);
@@ -14,10 +15,11 @@ export default function Home() {
   return (
     <Container aside={aside}>
       <Header />
+      <Categories />
+      <ModalSearch />
       <Main>
         <Aside />
         <div className="box">
-          <Categories />
           <Videos />
           <MenuMobile />
         </div>

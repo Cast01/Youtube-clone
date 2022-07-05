@@ -9,8 +9,11 @@ import {
 import useWindowDimensions from "../Hooks/useWindowDimensions";
 
 interface ContextType {
-  aside: boolean;
-  setAside: Dispatch<SetStateAction<boolean>>;
+  aside: string;
+  setAside: Dispatch<SetStateAction<string>>;
+  width: number;
+  modalSearch: boolean;
+  setModalSearch: Dispatch<SetStateAction<boolean>>;
 }
 
 export const AsideSwitcherContext = createContext({} as ContextType);
@@ -23,15 +26,34 @@ export function AsideSwitcherContextProvider({
   children,
 }: VideoContextProviderProps) {
   const { width } = useWindowDimensions();
+  const [modalSearch, setModalSearch] = useState(false);
 
-  const [aside, setAside] = useState(width >= 1000 ? true : false);
+  const [aside, setAside] = useState(
+    width >= 1000
+      ? "true"
+      : width >= 700 && width < 1000
+      ? "false"
+      : width < 700
+      ? "none"
+      : ""
+  );
 
   useEffect(() => {
-    setAside(width >= 1000 ? true : false);
+    setAside(
+      width >= 1000
+        ? "true"
+        : width >= 700 && width < 1000
+        ? "false"
+        : width < 700
+        ? "none"
+        : ""
+    );
   }, [width]);
 
   return (
-    <AsideSwitcherContext.Provider value={{ aside, setAside }}>
+    <AsideSwitcherContext.Provider
+      value={{ aside, setAside, width, modalSearch, setModalSearch }}
+    >
       {children}
     </AsideSwitcherContext.Provider>
   );

@@ -53,42 +53,6 @@ export const Container = styled.header`
     @media (max-width: 700px) {
       display: none;
     }
-
-    .box-input {
-      display: flex;
-      width: 80%;
-      align-items: center;
-      max-width: 700px;
-
-      input {
-        height: 35px;
-        width: calc(100% - 70px);
-        outline: none;
-      }
-
-      .box-button-icon {
-        position: relative;
-
-        button {
-          width: 70px;
-          height: 35px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 0 4px 4px 0;
-          border: 1px solid #878787;
-          border-left: 0px;
-        }
-
-        > svg {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          left: -35px;
-          cursor: pointer;
-        }
-      }
-    }
   }
 
   .box-3 {
@@ -153,6 +117,42 @@ export const Container = styled.header`
           }
         }
       }
+    }
+  }
+`;
+
+export const InputAndButton = styled.div`
+  display: flex;
+  width: 80%;
+  align-items: center;
+  max-width: 700px;
+
+  input {
+    height: 35px;
+    width: calc(100% - 70px);
+    outline: none;
+  }
+
+  .box-button-icon {
+    position: relative;
+
+    button {
+      width: 70px;
+      height: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 4px 4px 0;
+      border: 1px solid #878787;
+      border-left: 0px;
+    }
+
+    > svg {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -35px;
+      cursor: pointer;
     }
   }
 `;

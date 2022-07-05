@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.aside`
   .aside {
     width: 200px;
-    height: 100%;
+    height: calc(100% - 50px);
     overflow-y: auto;
     overflow-x: hidden;
 

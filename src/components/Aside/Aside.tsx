@@ -14,7 +14,7 @@ export default function Aside() {
 
   return (
     <Container>
-      {aside ? (
+      {aside === "true" ? (
         <div className="aside">
           <ul>
             <li>
@@ -266,7 +266,7 @@ export default function Aside() {
             </li>
           </ul>
         </div>
-      ) : (
+      ) : aside === "false" ? (
         <div className="aside-compacted">
           <ul>
             <li>
@@ -301,6 +301,8 @@ export default function Aside() {
             </li>
           </ul>
         </div>
+      ) : (
+        ""
       )}
     </Container>
   );

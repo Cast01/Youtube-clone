@@ -11,16 +11,22 @@ export default function Categories() {
   const [rightArrow, setRightArrow] = useState(true);
   const [leftArrow, setLeftArrow] = useState(false);
 
-  const {aside} = useContext(AsideSwitcherContext);
+  const { aside } = useContext(AsideSwitcherContext);
 
   const ulRef = useRef();
   const { widthUl } = useContainerDimensions(ulRef);
   const componentRef = useRef();
   const { widthComponent } = useContainerDimensions(componentRef);
 
-  //Talvez usar o useEffect para ajustar o tamanho quando o aside mudar
-  const maxLeft = aside ? widthComponent - widthUl : widthComponent - widthUl + 100;
-  console.log(rightArrow, leftArrow);
+  const maxLeft =
+    aside === "true"
+      ? widthComponent - widthUl
+      : aside === "false"
+      ? widthComponent - widthUl - 10
+      : aside === "none"
+      ? widthComponent - widthUl - 10
+      : "";
+  console.log(widthUl, widthComponent, maxLeft);
 
   function handleRightArrow() {
     setLeftArrow(true);

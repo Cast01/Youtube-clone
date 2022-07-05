@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export function useContainerDimensions(myRef: {
-  current: { offsetWidth: number; offsetHeight: number };
+  current: { offsetWidth: number };
 }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const getDimensions = () => ({

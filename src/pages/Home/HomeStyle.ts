@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface HomeProps {
-  aside: boolean;
+  aside: string;
 }
 
 export const Container = styled.div`
@@ -10,7 +10,8 @@ export const Container = styled.div`
   margin: 0 auto;
 
   .box {
-    width: ${({ aside }: HomeProps) => (aside ? "100%" : "calc(100% - 65px)")};
+    width: ${({ aside }: HomeProps) =>
+      aside === "true" ? "100%" : aside === "false" ? "calc(100% - 65px)" : ""};
     background: #f1f1f1;
     overflow-x: hidden;
 
