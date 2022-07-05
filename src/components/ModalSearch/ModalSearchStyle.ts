@@ -12,11 +12,11 @@ export const Container = styled.div`
   @media (max-width: 700px) {
     position: fixed;
     top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 100vw;
+    height: 100vh;
     display: ${({ modalSearch }: ModalSearchProps) =>
       modalSearch ? "block" : "none"};
+    z-index: 99;
 
     .input-button-container {
       width: 100%;
@@ -31,7 +31,6 @@ export const Container = styled.div`
 
 export const Modal = styled.div`
   width: 100%;
-  height: calc(100% - 65px);
+  height: calc(100vh - 65px);
   background: rgba(0, 0, 0, 0.1);
-  z-index: 99;
 `;
