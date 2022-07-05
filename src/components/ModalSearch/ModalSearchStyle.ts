@@ -15,8 +15,6 @@ export const Container = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.1);
-    z-index: 99;
     display: ${({ modalSearch }: ModalSearchProps) =>
       modalSearch ? "block" : "none"};
 
@@ -29,4 +27,11 @@ export const Container = styled.div`
       align-items: center;
     }
   }
+`;
+
+export const Modal = styled.div`
+  width: 100%;
+  height: calc(100% - 65px);
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 99;
 `;
