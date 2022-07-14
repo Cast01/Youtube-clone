@@ -6,12 +6,11 @@ import {
   useEffect,
   useState,
 } from "react";
-import useWindowDimensions from "../Hooks/useWindowDimensions";
+import { useWindowDimensions } from "../Hooks/useWindowDimensions";
 
 interface ContextType {
-  aside: string;
-  setAside: Dispatch<SetStateAction<string>>;
-  width: number;
+  aside: AsideType | undefined;
+  setAside: Dispatch<SetStateAction<AsideType | undefined>>;
   modalSearch: boolean;
   setModalSearch: Dispatch<SetStateAction<boolean>>;
 }
@@ -22,37 +21,33 @@ interface VideoContextProviderProps {
   children: ReactNode;
 }
 
+export type AsideType = "true" | "false" | "none" | (() => void);
+
 export function AsideSwitcherContextProvider({
   children,
 }: VideoContextProviderProps) {
   const { width } = useWindowDimensions();
   const [modalSearch, setModalSearch] = useState(false);
 
-  const [aside, setAside] = useState(
-    width >= 1000
-      ? "true"
-      : width >= 700 && width < 1000
-      ? "false"
-      : width < 700
-      ? "none"
-      : ""
-  );
+  const [aside, setAside] = useState<AsideType>();
 
   useEffect(() => {
-    setAside(
-      width >= 1000
-        ? "true"
-        : width >= 700 && width < 1000
-        ? "false"
-        : width < 700
-        ? "none"
-        : ""
-    );
+    const asideValue = () => {
+      if (width >= 1000) {
+        setAside("true");
+      } else if (width >= 700 && width < 1000) {
+        setAside("false");
+      } else if (width < 700) {
+        setAside("none");
+      }
+    };
+
+    setAside(asideValue);
   }, [width]);
 
   return (
     <AsideSwitcherContext.Provider
-      value={{ aside, setAside, width, modalSearch, setModalSearch }}
+      value={{ aside, setAside, modalSearch, setModalSearch }}
     >
       {children}
     </AsideSwitcherContext.Provider>

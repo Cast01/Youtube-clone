@@ -15,11 +15,11 @@ export default function Home() {
   return (
     <Container aside={aside}>
       <Header />
-      <Categories />
       <ModalSearch />
       <Main>
         <Aside />
         <div className="box">
+          <Categories />
           <Videos />
           <MenuMobile />
         </div>

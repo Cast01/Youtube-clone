@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface HomeProps {
-  aside: string;
+  aside: "true" | "false" | "none" | (() => void) | undefined;
 }
 
 export const Container = styled.div`

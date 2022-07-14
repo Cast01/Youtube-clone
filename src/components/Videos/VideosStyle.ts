@@ -5,9 +5,10 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding: 10px 5px 65px;
-  gap: 5px;
+  padding: 15px 5px 65px;
+  gap: 15px;
   justify-content: center;
   align-content: baseline;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;

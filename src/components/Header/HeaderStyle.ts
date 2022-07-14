@@ -131,6 +131,7 @@ export const InputAndButton = styled.div`
     height: 35px;
     width: calc(100% - 70px);
     outline: none;
+    font-size: 18px;
   }
 
   .box-button-icon {
@@ -145,6 +146,7 @@ export const InputAndButton = styled.div`
       border-radius: 0 4px 4px 0;
       border: 1px solid #878787;
       border-left: 0px;
+      cursor: pointer;
     }
 
     > svg {

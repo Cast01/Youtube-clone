@@ -2,11 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 50%;
-  max-height: 250px;
+  max-height: 290px;
   width: calc((100% / 4) - 4px);
   max-width: 250px;
   border-radius: 5px;
   overflow: hidden;
+  cursor: pointer;
+  transition: 0.6s;
+  transform: scale(1.3, 1.3);
+
+  &:hover {
+    background: linear-gradient(to bottom, #c9c9c9, transparent);
+  }
 
   .youtube-card {
     width: 100%;

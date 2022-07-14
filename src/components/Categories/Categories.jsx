@@ -1,7 +1,6 @@
 import { Container, CategoryItem } from "./CategoriesStyle";
 import { CaretRight, CaretLeft } from "phosphor-react";
-import { useContext, useRef, useState } from "react";
-import { useContainerDimensions } from "../../Hooks/useContainerDimensions";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AsideSwitcherContext } from "../../Contexts/AsideSwitcher";
 
 export default function Categories() {
@@ -10,29 +9,21 @@ export default function Categories() {
   const [scrollX, setScrollX] = useState(0);
   const [rightArrow, setRightArrow] = useState(true);
   const [leftArrow, setLeftArrow] = useState(false);
+  const [widthComponent, setWidthComponent] = useState(null);
+  const [widthUl, setWidthUl] = useState(null);
 
   const { aside } = useContext(AsideSwitcherContext);
 
   const ulRef = useRef();
-  const { widthUl } = useContainerDimensions(ulRef);
   const componentRef = useRef();
-  const { widthComponent } = useContainerDimensions(componentRef);
 
-  const maxLeft =
-    aside === "true"
-      ? widthComponent - widthUl
-      : aside === "false"
-      ? widthComponent - widthUl - 10
-      : aside === "none"
-      ? widthComponent - widthUl - 10
-      : "";
-  console.log(widthUl, widthComponent, maxLeft);
+  const maxLeft = widthComponent - widthUl;
 
   function handleRightArrow() {
     setLeftArrow(true);
     let leftNegative = scrollX - 100;
     if (scrollX <= maxLeft) {
-      leftNegative = maxLeft - 70;
+      leftNegative = maxLeft - 130;
       setRightArrow(false);
     }
     setScrollX(leftNegative);
@@ -47,6 +38,13 @@ export default function Categories() {
     }
     setScrollX(leftPositive);
   }
+
+  useEffect(() => {
+    setWidthComponent(componentRef.current.offsetWidth);
+    setWidthUl(ulRef.current.offsetWidth);
+  }, [aside]);
+
+  console.log(widthComponent, widthUl, maxLeft);
 
   return (
     <Container
