@@ -8,9 +8,25 @@ import {
   ApplePodcastsLogo,
   Books,
 } from "phosphor-react";
+import { useWindowDimensions } from "../../Hooks/useWindowDimensions";
 
 export default function Aside() {
-  const { aside } = useContext(AsideSwitcherContext);
+  const { aside, setAside } = useContext(AsideSwitcherContext);
+  const { width } = useWindowDimensions();
+
+  if (aside === undefined) {
+    const asideValue = () => {
+      if (width >= 1000) {
+        setAside("true");
+      } else if (width >= 700 && width < 1000) {
+        setAside("false");
+      } else if (width < 700) {
+        setAside("none");
+      }
+    };
+
+    setAside(asideValue);
+  }
 
   return (
     <Container>
