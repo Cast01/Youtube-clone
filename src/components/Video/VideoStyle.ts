@@ -9,9 +9,10 @@ export const Container = styled.div`
   overflow: hidden;
   cursor: pointer;
   transition: 0.6s;
-  transform: scale(1.3, 1.3);
+  background: linear-gradient(to bottom, #c9c9c9, transparent);
 
   &:hover {
+    transform: scale(1.1, 1.1);
     background: linear-gradient(to bottom, #c9c9c9, transparent);
   }
 

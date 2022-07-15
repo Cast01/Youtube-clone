@@ -44,8 +44,6 @@ export default function Categories() {
     setWidthUl(ulRef.current.offsetWidth);
   }, [aside]);
 
-  console.log(widthComponent, widthUl, maxLeft);
-
   return (
     <Container
       scrollX={scrollX}
