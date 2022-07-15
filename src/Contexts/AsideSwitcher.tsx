@@ -9,8 +9,8 @@ import {
 import { useWindowDimensions } from "../Hooks/useWindowDimensions";
 
 interface ContextType {
-  aside: AsideType | undefined;
-  setAside: Dispatch<SetStateAction<AsideType | undefined>>;
+  aside: AsideType;
+  setAside: Dispatch<SetStateAction<AsideType>>;
   modalSearch: boolean;
   setModalSearch: Dispatch<SetStateAction<boolean>>;
 }
@@ -29,7 +29,15 @@ export function AsideSwitcherContextProvider({
   const { width } = useWindowDimensions();
   const [modalSearch, setModalSearch] = useState(false);
 
-  const [aside, setAside] = useState<AsideType>();
+  const [aside, setAside] = useState<AsideType>(() => {
+    if (width >= 1000) {
+      return "true";
+    } else if (width >= 700 && width < 1000) {
+      return "false";
+    } else if (width < 700) {
+      return "none";
+    }
+  });
   console.log(aside);
 
   useEffect(() => {
