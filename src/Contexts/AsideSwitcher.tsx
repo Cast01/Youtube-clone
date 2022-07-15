@@ -39,6 +39,7 @@ export function AsideSwitcherContextProvider({
     }
   });
   console.log(aside);
+  console.log(width);
 
   useEffect(() => {
     const asideValue = () => {
