@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AsideSwitcherContext } from "../../Contexts/AsideSwitcher";
 import { Container } from "./AsideStyle";
 import {
@@ -9,34 +9,8 @@ import {
   Books,
 } from "phosphor-react";
 
-import { AsideType } from "../../Contexts/AsideSwitcher";
-import { useWindowDimensions } from "../../Hooks/useWindowDimensions";
-
 export default function Aside() {
-  const { width } = useWindowDimensions();
-
-  const [aside, setAside] = useState<AsideType>(() => {
-    if (width >= 1000) {
-      return "true";
-    } else if (width >= 700 && width < 1000) {
-      return "false";
-    } else if (width < 700) {
-      return "none";
-    }
-  });
-
-  useEffect(() => {
-    setAside(() => {
-      if (width >= 1000) {
-        return "true";
-      } else if (width >= 700 && width < 1000) {
-        return "false";
-      } else if (width < 700) {
-        return "none";
-      }
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [aside]);
+  const { aside } = useContext(AsideSwitcherContext);
 
   return (
     <Container>
@@ -327,10 +301,8 @@ export default function Aside() {
             </li>
           </ul>
         </div>
-      ) : aside === "none" ? (
-        <></>
       ) : (
-        <></>
+        ""
       )}
     </Container>
   );
