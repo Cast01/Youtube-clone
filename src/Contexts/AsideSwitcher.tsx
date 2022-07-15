@@ -38,8 +38,6 @@ export function AsideSwitcherContextProvider({
       return "none";
     }
   });
-  console.log(aside);
-  console.log(width);
 
   useEffect(() => {
     const asideValue = () => {
