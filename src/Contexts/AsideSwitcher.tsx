@@ -30,6 +30,7 @@ export function AsideSwitcherContextProvider({
   const [modalSearch, setModalSearch] = useState(false);
 
   const [aside, setAside] = useState<AsideType>();
+  console.log(aside);
 
   useEffect(() => {
     const asideValue = () => {
