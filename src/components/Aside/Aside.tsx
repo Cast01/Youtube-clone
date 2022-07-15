@@ -301,8 +301,10 @@ export default function Aside() {
             </li>
           </ul>
         </div>
+      ) : aside === "none" ? (
+        <></>
       ) : (
-        ""
+        <></>
       )}
     </Container>
   );
